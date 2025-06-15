@@ -1,6 +1,6 @@
 "use strict"
 
-window.SERVICIOURL = "http://localhost/ServicioWebEP1";
+window.SERVICIOURL = "http://ecotasty.store/api/NextTravel";
 
 const menuData = [
     {
