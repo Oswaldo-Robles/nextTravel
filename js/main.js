@@ -26,8 +26,8 @@ const menuData = [
     },
 
     { label: "Hotel", url: "pages/hotel.html", script: "js/pages/hotel.js" },
-    { label: "Paquetes", url: "pages/Paquetes.html", script: "js/pages/paquetes.js" },
-    { label: "Vuelos", url: "pages/Vuelos.html", script: "js/pages/Vuelos.js" },
+    { label: "Paquetes", url: "pages/paquetes.html", script: "js/pages/paquetes.js" },
+    { label: "Vuelos", url: "pages/vuelos.html", script: "js/pages/vuelos.js" },
     { label: "Contáctanos", url: "pages/contactanos.html", script: "js/pages/contactanos.js" },
 
 
