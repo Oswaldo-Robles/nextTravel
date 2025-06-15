@@ -89,7 +89,7 @@ h5 {
 /*page-header*/
 .page-header {
   position: relative;
-  background: url('assets/img/page-header.png') center top/cover no-repeat;
+  background: url('../assets/img/page-header.png') center top/cover no-repeat;
   height: 450px; /* ajusta la altura según tu preferencia */
   display: flex;
   align-items: center;
