@@ -70,10 +70,11 @@
             const precioFinal = precioOferta === 0 ? precioLista : precioOferta;
 
             const mostrarPrecioAnterior = precioOferta === 0 ?
-                "" : `<span class="text-decoration-line-through text-secondary precio-anterior">S/.-${precioLista.toFixed(2)}</span>`;
+                "" : `<span class="text-decoration-line-through text-secondary precio-anterior">S/.${precioLista.toFixed(2)}</span>`;
 
             const porcentajeDescuento = precioOferta === 0 ?
-                "" : `<span class="badge bg-danger porcentaje-descuento">-${Math.round((1 - (precioFinal / precioLista)) * 100)}%</span>`;
+                "" : `<span class="badge bg-danger 
+                ">-${Math.round((1 - (precioFinal / precioLista)) * 100)}%</span>`;
 
             const imagenProducto = window.SERVICIOURL + (itemProducto.url_foto
                 ? itemProducto.url_foto
@@ -93,12 +94,12 @@
                                         <div class="mt-4">
                                             <h5 class="card-title fw-bold text-secondary ">
                                                 ${itemProducto.nombre}
-                                                <span class="badge bg-dark ms-2">${porcentajeDescuento}</span>
+                                                <span class="badge bg-danger fs-4 px-3 py-2">${porcentajeDescuento}</span>
                                             </h5>
 
-                                            <p class="card-text mb-1">
-                                                <span class="h6 text-success">S/. ${precioFinal.toFixed(2)}</span>
-                                                <small class="text-muted text-decoration-line-through ms-2">${mostrarPrecioAnterior}</small>
+                                            <p class="card-text mb-1 detalle-precio    ">
+                                                <span> S/.${precioFinal.toFixed(2)}</span>
+                                                <small>${mostrarPrecioAnterior}</small>
                                             </p>
 
                                             <p class="card-text text-secondary mb-0">

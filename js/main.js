@@ -8,27 +8,27 @@ const menuData = [
         submenu: [
             {
                 label: "Nosotros",
-                url: "/pages/nosotros.html",
-                script: "/js/pages/nosotros.js"
+                url: "pages/nosotros.html",
+                script: "js/pages/nosotros.js"
 
             },
             {
                 label: "Asesores",
-                url: "/pages/asesores.html",
-                script: "/js/pages/asesores.js"
+                url: "pages/asesores.html",
+                script: "js/pages/asesores.js"
             },
             {
                 label: "Locales",
-                url: "/pages/locales.html",
-                script: "/js/pages/locales.js"
+                url: "pages/locales.html",
+                script: "js/pages/locales.js"
             }
         ]
     },
 
-    { label: "Hotel", url: "/pages/hotel.html", script: "/js/pages/hotel.js" },
-    { label: "Paquetes", url: "/pages/Paquetes.html", script: "/js/pages/paquetes.js" },
-    { label: "Vuelos", url: "/pages/Vuelos.html", script: "/js/pages/Vuelos.js" },
-    { label: "Contáctanos", url: "/pages/contactanos.html", script: "/js/pages/contactanos.js" },
+    { label: "Hotel", url: "pages/hotel.html", script: "/js/pages/hotel.js" },
+    { label: "Paquetes", url: "pages/Paquetes.html", script: "/js/pages/paquetes.js" },
+    { label: "Vuelos", url: "pages/Vuelos.html", script: "/js/pages/Vuelos.js" },
+    { label: "Contáctanos", url: "pages/contactanos.html", script: "/js/pages/contactanos.js" },
 
 
 ]
@@ -116,7 +116,7 @@ const activarLink = (link) => {
 }
 
 logoNavbarBrand.addEventListener("click", () => {
-    loadPage("/pages/home.html", "js/pages/home.js")
+    loadPage("pages/home.html", "js/pages/home.js")
 })
 
 
@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     '.glass-navbar',
     10,
     '#logo-navbar-img',
-    './assets/img/logo-blanco.png',   // Cambia por el logo de fondo oscuro
-    './assets/img/logo-color.png'     // Cambia por el logo de fondo claro
+    'assets/img/logo-blanco.png',   // Cambia por el logo de fondo oscuro
+    'assets/img/logo-color.png'     // Cambia por el logo de fondo claro
   );
 });
