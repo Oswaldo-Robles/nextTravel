@@ -1,6 +1,6 @@
 "use strict"
 
-window.SERVICIOURL = "http://ecotasty.store/api/NextTravel";
+window.SERVICIOURL = "https://ecotasty.store/api/NextTravel";
 
 const menuData = [
     {
@@ -25,10 +25,10 @@ const menuData = [
         ]
     },
 
-    { label: "Hotel", url: "pages/hotel.html", script: "/js/pages/hotel.js" },
-    { label: "Paquetes", url: "pages/Paquetes.html", script: "/js/pages/paquetes.js" },
-    { label: "Vuelos", url: "pages/Vuelos.html", script: "/js/pages/Vuelos.js" },
-    { label: "Contáctanos", url: "pages/contactanos.html", script: "/js/pages/contactanos.js" },
+    { label: "Hotel", url: "pages/hotel.html", script: "js/pages/hotel.js" },
+    { label: "Paquetes", url: "pages/Paquetes.html", script: "js/pages/paquetes.js" },
+    { label: "Vuelos", url: "pages/Vuelos.html", script: "js/pages/Vuelos.js" },
+    { label: "Contáctanos", url: "pages/contactanos.html", script: "js/pages/contactanos.js" },
 
 
 ]
@@ -99,6 +99,7 @@ const loadPage = (itemUrl, itemScript) => {
 
             if (itemScript) {
                 const script = document.createElement("script")
+                script.type = "text/javascript";
                 script.src = itemScript
                 mainContent.appendChild(script)
             }
@@ -128,8 +129,8 @@ const setUpNavbarScrollEffect = (
   navbarSelector = '.glass-navbar',
   scrollValue = 10,
   logoSelector = '#logo-navbar-img',
-  logoDefault = './assets/img/logo-blanco.png',
-  logoScrolled = './assets/img/logo-color.png'
+  logoDefault = 'assets/img/logo-blanco.png',
+  logoScrolled = 'assets/img/logo-color.png'
 ) => {
   const navbar = document.querySelector(navbarSelector);
   const logo = document.querySelector(logoSelector);
