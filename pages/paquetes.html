@@ -1,0 +1,90 @@
+<header class="page-header">
+    <div class="container">
+        <h1>Paquetes</h1>
+
+        <nav class="breadcrumb-pill">
+            <a href="#">Home</a>
+            <span class="separator">&gt;</span>
+            <span class="current">Paquete</span>
+        </nav>
+    </div>
+</header>
+
+
+<section class="lista-paquetes">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-2  col-lg-3  col-md-4">
+                <h3>Categorias</h3>
+
+                <ul class="list-group" id="list-categorias">
+                </ul>
+            </div>
+
+            <div class="col-xxl-10 col-lg-9 col-md-8 ">
+                <h2 id="categoria-nombre"></h2>
+                <p> <span id="categoria-descripcion"> </span>
+                    <br>
+                    (<span id="categoria-total"> </span> encontrados)
+                </p>
+
+                <div class="row row-cols-1 row-cols-xl-2   row-cols-lg-2  row-cols-md-1 g-4" id="grid-paquetes">
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="vista-rapida-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title fs-5" id="paquete-detalle-nombre">Modal title</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md">
+                        <img src="" alt="" class="img-fluid" id="paquete-detalle-imagen">
+                    </div>
+                    <div class="col-md">
+                        <table class="table">
+                            <tr>
+                                <th>Descripcion</th>
+                                <td id="paquete-detalle-descripcion"></td>
+                            </tr>
+                            <tr>
+                                <th>Dias</th>
+                                <td id="paquete-detalle-dias"></td>
+                            </tr>
+
+                            <tr>
+                                <th>Cantidad de personas</th>
+                                <td id="paquete-detalle-personas"></td>
+                            </tr>
+                            <tr>
+                                <th>Precio</th>
+                                <td id="paquete-detalle-precio"></td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar <i class="bi bi-x-circle"></i> </button>
+                <button type="button" class="btn btn-primary">Añadir a la cesta <i class="bi bi-bag-check-fill"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
