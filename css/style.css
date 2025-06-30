@@ -396,3 +396,14 @@ h5 {
 .btnDescripcion:hover {
   background-color: #2e4f4f !important;
 }
+
+.btn-carrito {
+    background-color: #163E3A !important; 
+    color: white !important;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-carrito:hover {
+    background-color: #0F2C29 ;
+}

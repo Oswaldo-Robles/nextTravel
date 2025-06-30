@@ -141,6 +141,8 @@ const loadPage = (itemUrl, itemScript) => {
         .then((data) => {
             mainContent.innerHTML = data;
 
+            window.scrollTo({ top: 0, behavior: "smooth" });
+
             if (itemScript) {
                 const script = document.createElement("script");
                 script.type = "text/javascript";
@@ -163,6 +165,29 @@ const activarLink = (link) => {
         if (parentDropdown) parentDropdown.classList.add("active");
     }
 };
+
+const agregarItemCarrito = (itemProducto, cantidad) => {
+    const precioFinal = itemProducto.precio_oferta === 0 ? itemProducto.precio : itemProducto.precio_oferta;
+
+    const nuevoItem = {
+        idProducto: itemProducto.id_paquete,
+        nombre: itemProducto.nombre,
+        precio: precioFinal,
+        cantidad: cantidad,
+    };
+
+    const carrito = JSON.parse(sessionStorage.getItem("carritoCompra")) || [];
+    const index = carrito.findIndex(item => item.idProducto === nuevoItem.idProducto);
+
+    if (index !== -1) {
+        carrito[index].cantidad += nuevoItem.cantidad;
+    } else {
+        carrito.push(nuevoItem);
+    }
+
+    sessionStorage.setItem("carritoCompra", JSON.stringify(carrito));
+};
+
 
 logoNavbarBrand.addEventListener("click", () => {
     loadPage("pages/home.html", "js/pages/home.js");

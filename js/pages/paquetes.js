@@ -76,41 +76,48 @@
                 "" : `<span class="badge bg-danger 
                 ">-${Math.round((1 - (precioFinal / precioLista)) * 100)}%</span>`;
 
-            const imagenProducto = window.SERVICIOURL + (itemProducto.url_foto
-                ? itemProducto.url_foto
-                : "imagenes/nofoto.jpg");
+            const imagenProducto = window.SERVICIOURL + (itemProducto.url_foto ?
+                itemProducto.url_foto :
+                "imagenes/nofoto.jpg");
 
             const card = `
-                        <div class="col">
-                            <div class="card h-100">
-                                    <div class="card-body">
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body d-flex flex-column">
+                            <div class="imagen-container mb-3">
+                                <img src="${imagenProducto}" class="card-img-top img-producto" alt="imagen del producto">
+                            </div>
 
-                                        <div class="imagen-container">
-                                            <img src="${imagenProducto}" class="card-img-top img-producto" alt="imagen del producto">
-                                        </div>
+                            <i class="bi bi-eye icono-vista-rapida" data-bs-toggle="modal" data-bs-target="#vista-rapida-modal"></i>
 
-                                        <i class="bi bi-eye icono-vista-rapida"  data-bs-toggle="modal" data-bs-target="#vista-rapida-modal"> </i>
+                            <div>
+                                <h5 class="card-title fw-bold text-secondary">
+                                    ${itemProducto.nombre}
+                                    <span class="badge bg-danger fs-4 px-3 py-2">${porcentajeDescuento}</span>
+                                </h5>
 
-                                        <div class="mt-4">
-                                            <h5 class="card-title fw-bold text-secondary ">
-                                                ${itemProducto.nombre}
-                                                <span class="badge bg-danger fs-4 px-3 py-2">${porcentajeDescuento}</span>
-                                            </h5>
+                                <p class="card-text mb-1 detalle-precio">
+                                    <span> S/.${precioFinal.toFixed(2)}</span>
+                                    <small>${mostrarPrecioAnterior}</small>
+                                </p>
 
-                                            <p class="card-text mb-1 detalle-precio    ">
-                                                <span> S/.${precioFinal.toFixed(2)}</span>
-                                                <small>${mostrarPrecioAnterior}</small>
-                                            </p>
+                                <p class="card-text text-secondary mb-0">
+                                    <i class="bi bi-calendar-event"></i> Cantidad de días: ${itemProducto.duracion_dias}
+                                </p>
+                            </div>
 
-                                            <p class="card-text text-secondary mb-0">
-                                                <i class="bi bi-calendar-event"></i> Cantidad de días: ${itemProducto.duracion_dias}
-                                            </p>
-                                        </div>
-
-                                    </div>
+                            <!-- Botón siempre al fondo -->
+                            <div class="mt-auto pt-3">
+                                <button class="btn btn-carrito w-100">
+                                    <i class="bi bi-cart-plus"></i> Agregar al carrito
+                                </button>
                             </div>
                         </div>
-                `
+                    </div>
+                </div>
+            `;
+
+
             gripProductos.innerHTML += card
         });
 
@@ -123,6 +130,14 @@
             imagenProducto.addEventListener('click', () => mostrarDetalleProducto(index));
         });
 
+        gripProductos.querySelectorAll('.btn-carrito').forEach((botonAgregar, index) => {
+            botonAgregar.addEventListener("click", () => {
+                agregarItemCarrito(paquetesCategoria[index], 1);
+            });
+        });
+
+
+
     }
 
     const mostrarDetalleProducto = (index) => {
@@ -132,6 +147,10 @@
             .then((response) => response.text())
             .then((data) => {
                 mainContent.innerHTML = data
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
                 const script = document.createElement("script")
                 script.src = "js/pages/productoDetalle.js"
                 script.setAttribute("codigoProducto", productoSelecionadoId);

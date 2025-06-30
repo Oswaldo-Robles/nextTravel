@@ -12,11 +12,48 @@
 </header>
 
 <section class="padded">
+  <div class="container">
+    <div class="row">
+      <!-- Tabla del carrito -->
+      <div class="col-md-10">
+        <table class="table table-hover align-middle">
+          <thead class="table-dark">
+            <tr>
+              <th>Código</th>
+              <th>Paquete</th>
+              <th class="text-end">Precio</th>
+              <th class="text-end caja-cantidad">Cantidad dias</th>
+              <th class="text-end">Subtotal</th>
+              <th class="text-center">Acción</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-carrito"></tbody>
+        </table>
 
-    <div class="container">
-        <div class="row row-cols-1 row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-2  g-4" id="grid-empleados">
+        <!-- Alerta de carrito vacío -->
+        <div class="alert alert-warning text-center" role="alert" id="alerta-carrito-vacio" style="display: none;">
+          El carrito de compras está vacío.
         </div>
+      </div>
 
+      <!-- Resumen del pedido -->
+      <div class="col-md-2">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h6 class="card-title fw-bold">Resumen</h6>
+            <p class="card-text">
+              Subtotal: <strong>S/ <span id="total-pedido">0.00</span></strong>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <!-- Botón vaciar -->
+    <div class="mt-4 text-end">
+      <button class="btn btn-danger" id="btn-vaciar-carrito">
+        <i class="bi bi-trash"></i> Vaciar Carrito
+      </button>
+    </div>
+  </div>
 </section>
