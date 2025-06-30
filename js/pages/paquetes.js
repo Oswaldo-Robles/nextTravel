@@ -84,9 +84,12 @@
                 <div class="col">
                     <div class="card h-100">
                         <div class="card-body d-flex flex-column">
-                            <div class="imagen-container mb-3">
-                                <img src="${imagenProducto}" class="card-img-top img-producto" alt="imagen del producto">
-                            </div>
+                        
+                        <div class="imagen-container mb-3">
+                        <img src="${imagenProducto}" class="card-img-top img-producto" alt="imagen del producto"
+                            onerror="this.onerror=null;this.src='https://ecotasty.store/apiNextTravel/imagenes/nofoto.png';">
+                        </div>
+
 
                             <i class="bi bi-eye icono-vista-rapida" data-bs-toggle="modal" data-bs-target="#vista-rapida-modal"></i>
 
