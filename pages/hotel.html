@@ -4,17 +4,110 @@
         <nav class="breadcrumb-pill">
             <a href="#">Home</a>
             <span class="separator">&gt;</span>
-            <span class="current">Hotel</span>
+            <span class="current">Hoteles en Perú</span>
         </nav>
     </div>
 </header>
 
 <section class="padded">
-
     <div class="container">
-        <div class="row row-cols-1 row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-2  g-4" id="grid-empleados">
+        <div class="mb-3">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-Read"
+                aria-controls="offcanvasRight">Nuevo Hotel</button>
         </div>
 
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Departamento</th>
+                    <th>Precio Noche</th>
+                    <th>Descripcion</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="tbody-hotel"></tbody>
+        </table>
+
+    </div>
+</section>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-Read" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">Nuevo Hotel</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
 
-</section>
+    <div class="offcanvas-body">
+        <form id="form-insert">
+            <div class="mb-3">
+                <input type="text" name="nombreHotel" class="form-control" placeholder="Nombre del hotel" required
+                    minlength="4">
+            </div>
+
+            <div class="mb-3">
+                <input type="text" name="departamento" class="form-control" placeholder="Departamento" required
+                    minlength="3">
+            </div>
+
+            <div class="mb-3">
+                <input type="number" name="precioNoche" class="form-control" placeholder="Ej. 250.00" min="1" max="2000"
+                    step="0.01" required>
+            </div>
+
+            <div class="mb-3">
+                <textarea name="descripcion" class="form-control form-control-lg" placeholder="Descripción del hotel"
+                    rows="4" required minlength="20"></textarea>
+            </div>
+
+
+            <div class="mb-3">
+                <button class="btn btn-primary" type="submit"> Guardar </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-Update" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">Actualizar hotel</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+        <form id="form-update">
+
+            <div class="mb-3">
+                <input type="text" name="idHotel" class="form-control" id="updateIdHotel" readonly>
+            </div>
+
+            <div class="mb-3">
+                <input type="text" name="nombreHotel" class="form-control" id="updateNombreHotel"
+                    placeholder="Nombre del hotel" readonly>
+            </div>
+
+            <div class="mb-3">
+                <input type="text" name="departamento" class="form-control" id="updateDepartamento"
+                    placeholder="Departamento" readonly>
+            </div>
+
+            <div class="mb-3">
+                <input type="number" name="precioNoche" class="form-control" id="updatePrecioNoche"
+                    placeholder="Precio por noche" min="1" max="5000" step="0.01" required>
+            </div>
+
+            <div class="mb-3">
+                <textarea name="descripcion" class="form-control" id="updateDescripcion" rows="3"
+                    placeholder="Descripción del hotel" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <button class="btn btn-primary" type="submit">Actualizar</button>
+            </div>
+
+        </form>
+    </div>
+</div>
