@@ -407,3 +407,12 @@ h5 {
 .btn-carrito:hover {
     background-color: #0F2C29 ;
 }
+
+/************Hoteles***********/
+.icono-editar, .icono-eliminar{
+    cursor: pointer;
+}
+
+.icono-editar:hover, .icono-eliminar:hover{
+    color: rgb(11, 137, 62);
+}

@@ -26,13 +26,15 @@
                     tbodyHotel.innerHTML += fila
                 })
 
-                /* tbodyHotel.querySelectorAll(".icono-editar").forEach((iconoEditar, index) => {
+                tbodyHotel.querySelectorAll(".icono-editar").forEach((iconoEditar, index) => {
                     iconoEditar.addEventListener("click", () => {
-                        document.getElementById("updateIdDirector").value = data[index].iddirector;
-                        document.getElementById("updateNombreDirector").value = data[index].nombres;
-                        document.getElementById("updatePeliculaDirector").value = data[index].peliculas;
+                        document.getElementById("updateIdHotel").value = data[index].idHotel;
+                        document.getElementById("updateNombreHotel").value = data[index].nombreHotel;
+                        document.getElementById("updateDepartamento").value = data[index].departamento;
+                        document.getElementById("updatePrecioNoche").value = data[index].precioNoche;
+                        document.getElementById("updateDescripcion").value = data[index].descripcion;
                     })
-                }) */
+                })
             })
     }
     dibujarHoteles();
@@ -40,7 +42,6 @@
     const insertHotel = (event) => {
         event.preventDefault();
         const formData = new FormData(formInsert);
-        /* console.log(formData.get("nombre")+ " " + formData.get("pelicula")); //funciona */
 
         fetch(window.SERVICIOURL + `/Hotel/hotelInsert.php`, {
                 method: "POST",
@@ -56,8 +57,29 @@
             })
     }
 
+    const updateHotel = (event) => {
+        event.preventDefault();
+        const formData = new FormData(formUpdate);
+
+        fetch(window.SERVICIOURL + `/Hotel/hotelUpdate.php`, {
+                method: "POST",
+                body: formData
+            })
+            .then((response) => response.text())
+            .then(data => {
+                console.log(data);
+                dibujarHoteles();
+                formUpdate.reset();
+                document.querySelector("#offcanvas-Update .btn-close").click();
+            })
+    }
+
     formInsert.addEventListener("submit", (event) =>
         insertHotel(event)
+    );
+
+    formUpdate.addEventListener("submit", (event) =>
+        updateHotel(event)
     );
 
 })()
